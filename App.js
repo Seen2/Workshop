@@ -9,7 +9,7 @@ export default class App extends React.Component {
 					<Text> 1/6 </Text>
 					<Image 
 						source={require('./assets/Moab.jpeg')}
-						style={{width:100,height:100,}}
+						style={{flex:1,height:60,width:150}}
 					/>
 				</View>
 				<View 
@@ -24,7 +24,7 @@ export default class App extends React.Component {
 					<Text> 2/6 </Text>
 					<Image 
 						source={require('./assets/Moab.jpeg')}
-						style={{width:100,height:100,}}
+						style={{flex:1,height:60,width:150}}
 					/>
 				</View>
 				<View 
@@ -39,7 +39,7 @@ export default class App extends React.Component {
 					<Text> 3/6 </Text>
 					<Image 
 						source={require('./assets/Moab.jpeg')}
-						style={{width:100,height:100,}}
+						style={{flex:1,height:60,width:150}}
 					/>
 				</View>
       </View>
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
 		//flexGrow:0,
 		//flexShrink:1,
 		//flexBasis:100,//changes within ups and downs
+		flex: 1,
 		width:200,
 		borderWidth:3,
 		borderRadius:3,
