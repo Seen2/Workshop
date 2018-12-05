@@ -1,4 +1,4 @@
-const NUM_CONTACTS = 20;
+const NUM_CONTACTS = 50;
 
 const firstNames = [
   'Emma',
