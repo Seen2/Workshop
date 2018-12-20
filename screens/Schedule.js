@@ -4,6 +4,12 @@ import { StyleSheet, SectionList, View, ImageBackground, Text } from 'react-nati
 import ToggleButton from '../components/ToggleButton';
 
 export default class ScheduleScreen extends React.Component {
+	state={
+		selectedvalue:'THURSDAY',
+	}
+	handleOnPress=(value)=>{
+		this.setState({selectedvalue:value})
+	}
 	render() {
 		return (
 			<View style={styles.container}>
@@ -15,7 +21,8 @@ export default class ScheduleScreen extends React.Component {
 
 					<ToggleButton 
 						items={['THURSDAY','FRIDAY']}
-						value={'THURSDAY'}
+						value={this.state.selectedvalue}
+						onPressing={this.handleOnPress}
 					/>
 
 				</ImageBackground>

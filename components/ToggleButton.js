@@ -5,10 +5,12 @@ export default class ToggleButton extends React.Component {
 
 
 	renderItems=(item,index,list)=>{
+		const {onPressing,value}=this.props;
 		return(
-			<TouchableOpacity 
+			<TouchableOpacity
+				onPress={()=>onPressing(item)}
 				key={index}
-				style={[styles.container,{marginLeft:index?20:0}]}
+				style={[styles.container,{marginLeft:index?20:0,backgroundColor:item===value ?'#12ed12':'skyblue'}]}
 			> 
 				<Text style={[styles.button,{marginHorizontal:index!==0?10:0}]}>{item}</Text>
 			</TouchableOpacity>
@@ -16,7 +18,7 @@ export default class ToggleButton extends React.Component {
 		);
 	}
 	render() {
-		const {items,value}=this.props;
+		const {items}=this.props;
 		return (
 			<View style={{flexDirection:'row',}}>
 				{items.map(this.renderItems)}
