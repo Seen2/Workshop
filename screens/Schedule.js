@@ -3,6 +3,15 @@ import { StyleSheet, SectionList, View, ImageBackground, Text } from 'react-nati
 
 import ToggleButton from '../components/ToggleButton';
 
+
+thursdaySection=[
+	{title:'8:30AM',data:['Registration And BreakFast',]},
+	{title:'10:00AM',data:['Confrence Keynote','Lucy Vatne',]},
+]
+fridaySection=[
+	{title:'8:30AM',data:['Doubts And BreakFast',]},
+	{title:'10:00AM',data:['Confrence Keynote','Brent',]},
+]
 export default class ScheduleScreen extends React.Component {
 	state={
 		selectedvalue:'THURSDAY',
@@ -10,6 +19,16 @@ export default class ScheduleScreen extends React.Component {
 	handleOnPress=(value)=>{
 		this.setState({selectedvalue:value})
 	}
+	renderItem=({item,index,section})=>{
+		return(
+			<View style={styles.item}>
+				<Text style={{fontSize:20,}}>{item}</Text>
+			</View>
+		);
+	}
+	renderSectionHeader=({section: {title}}) => (
+		<Text style={styles.header}>{title}</Text>
+	)
 	render() {
 		return (
 			<View style={styles.container}>
@@ -25,7 +44,13 @@ export default class ScheduleScreen extends React.Component {
 						onPressing={this.handleOnPress}
 					/>
 
-				</ImageBackground>
+			</ImageBackground>
+			<SectionList
+				renderItem={this.renderItem}
+				renderSectionHeader={this.renderSectionHeader}
+				sections={this.state.selectedvalue==='THURSDAY'?thursdaySection:fridaySection}
+				keyExtractor={(item,index)=>item+index}
+			/>
 			</View>
     );
   }
@@ -38,7 +63,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffff',
 	},
 	backgroundImage:{
-		flex:0.35,
+		flex: 1,
 		textAlign:'center',
 		justifyContent:'center',
 		alignItems:'center',
@@ -50,6 +75,15 @@ const styles = StyleSheet.create({
 		backgroundColor:'transparent',
 
 	},
-
+	header:{
+		fontSize:25,
+		fontWeight:'bold',
+		backgroundColor:'#dddddd',
+		paddingLeft:10,
+	},
+	item:{
+		backgroundColor:'white',
+		paddingLeft:20,
+	},
 	
 });
