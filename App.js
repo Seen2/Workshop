@@ -3,12 +3,14 @@ import { StyleSheet, SectionList, View, Image, Text } from 'react-native';
 
 import EventDetailScreen from './screens/EventDetail';
 import ScheduleScreen from './screens/Schedule';
+import FeedbackScreen from './screens/Feedback';
 
 export default class App extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<ScheduleScreen />
+				<FeedbackScreen />
+				
 			</View>
     );
   }
@@ -23,3 +25,4 @@ const styles = StyleSheet.create({
 	},
 });
 //<EventDetailScreen />
+//<ScheduleScreen />
